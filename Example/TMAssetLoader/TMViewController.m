@@ -22,8 +22,11 @@
     self.loadEngine = [TMAssetLoadEngine loadEngineWithURL:[NSURL URLWithString:@"https://mvvideo5.meitudata.com/56ea0e90d6cb2653.mp4"]];
     AVPlayer *avplayer = [AVPlayer playerWithPlayerItem:[self.loadEngine playerItem]];
     [avplayer playImmediatelyAtRate:1.0];
-    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:avplayer];
-    layer.frame = self.view.bounds;
-    [self.view.layer addSublayer:layer];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];
+        controller.player = avplayer;
+        [self presentViewController:controller animated:YES completion:nil];
+    });
 }
 @end
