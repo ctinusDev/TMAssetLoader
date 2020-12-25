@@ -1,0 +1,16 @@
+PODS:
+  - TMAssetLoader (0.1.0)
+
+DEPENDENCIES:
+  - TMAssetLoader (from `../`)
+
+EXTERNAL SOURCES:
+  TMAssetLoader:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TMAssetLoader: c26d4444151bb9d2735a9cd683f152ad5e059560
+
+PODFILE CHECKSUM: 6eaa861b8dd5e67f740b992b38e28af2b4225cb5
+
+COCOAPODS: 1.10.0.beta.2

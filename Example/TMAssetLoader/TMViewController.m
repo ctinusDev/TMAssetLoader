@@ -7,23 +7,23 @@
 //
 
 #import "TMViewController.h"
+#import <AVKit/AVKit.h>
+#import <TMAssetLoader/TMAssetLoader.h>
 
 @interface TMViewController ()
-
+@property (nonatomic, strong) TMAssetLoadEngine *loadEngine;
 @end
 
 @implementation TMViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
+    self.loadEngine = [TMAssetLoadEngine loadEngineWithURL:[NSURL URLWithString:@"https://mvvideo5.meitudata.com/56ea0e90d6cb2653.mp4"]];
+    AVPlayer *avplayer = [AVPlayer playerWithPlayerItem:[self.loadEngine playerItem]];
+    [avplayer playImmediatelyAtRate:1.0];
+    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:avplayer];
+    layer.frame = self.view.bounds;
+    [self.view.layer addSublayer:layer];
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end

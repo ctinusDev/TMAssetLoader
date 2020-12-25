@@ -1,0 +1,6 @@
+framework module TMAssetLoader {
+  umbrella header "TMAssetLoader-umbrella.h"
+
+  export *
+  module * { export * }
+}
